@@ -1,5 +1,4 @@
-<h1 id="h1"></h1>
+var h1 = document.createElement('h3')
+h1.innerHTML = 'luyang\'s site !'
+document.body.appendChild(h1)
 
-<script>
-	document.getElementById('h1').innerHTML = 'luyang\'s site !'
-</script>

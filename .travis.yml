@@ -1,5 +1,14 @@
 language: node_js
+addons:
+  apt:
+	  packages:
+			- sshpass
 after_success:
- - eche 'success'
- - scp -r dist/* root@47.95.198.167:/usr/local/nginx/html/default
- - nginx -s reload
+- eche 'success'
+- export SSHPASS=$SSHPASS
+- sshpass -e scp -r dist/* root@47.95.198.167:/usr/local/nginx/html/default
+- nginx -s reload
+env:
+  global:
+  - secure: ghh2MvjGiiqwB4iLJeU3sLuvDmV18rq5mT7K3GLZvlWC0/EiZBGtfvKPaHVMRWTrmwmhGyVoTchGeoFnIDhcJbpL15ICPsnzcXPoVBR4VggTljn07nTqPEf4SjBx+lGuIbrCi7QSZ7pYlw9qXsDwSyJfSHSM4VkP0UkmT94bm+2lUezjOhWqlGUj/6+xvAURGJDnbiast9vZ5dHll2aFzKWQQnQfYtDzyataWmf7X2hGTRVoFdCi33vIJypiQ+CLlSoderprgBH1u6+VICpy5O/AtqVtZ/D6f9OwSVvhP2v2abTEHPcT3s6dpCZqpInRawQJbkA8M0vheLYp2Za6p+d4EZTpBssZCrleL5MsajWie8q88dufE2JsLKjiwaFlI0GH7UpwPVDJkJFdF+IkUvhtSF3Wla/TM82Dd3QSrEvuvW7LZPfT67pJ074tn5pno71jgJ+bocLKJZNEQSpfmTtDeM+u9QAypWfzXOZPkP4a3KEGY8aNGavXIs34n/TSYVelJV7VzvOzMF1Xf0KVOn9IKbSQ2085eX+0ka+r2WidZpGPNCluo2DZjOroIhvQvfWjhIQzq2txM09wG1uwuQIt6sessizsvf9JSTPKi2DVf1Q4Vt0EpQs//XYY2KGj5xmeXPLgu+zYPfxWHKrAm6fGD4xXZabiH2GxxhjQ3Vo=
+  - secure: Xq9uFk5K5mK3YiBio9/OcZe5vg4xF8RYnxpfC4D9wOc/71j+E5n6yIvEkwX5CRAeuSuQrLGRZeChS+L8WBfizzvTybFPx1irdzR+uCmqoUJodBirH+h/UzzmzF1iKQBWbMOzMfd7P24NI3RQfOd9XBMB8VGnTVn0fCXU+txjKo8zaSHHYTJ9O6QwHw5mp6eluCSBPo+ldi3LqBn5uCyav6J7Y/zTCpCh6sfCIUcCFxBQHWipv1PLv1S3o7G9Y0coJ7vt+2fZUrHgJSe8nvwAxLww/KxzadkJ5qOcC0m9J8FU/r1Q4vvb4oRtlsUPR6+UMs+hwXOd0M/HOb3ttTuzTffP/iTJxehgLfl41PZAwWtTJrUA3txKLUHq3yEeXAqyjKOYLuc54rx/oc3JY2SAYJyibpyUjpsgMvdiWwEgCbRKLGtE10EMSrd48SirxP3mzUdepauokefukz8/YeyDq0VFahq46efasdtLvg8s6k88ClIcjE+TQwS+7mcPD9lfFTbH+mqMlav+/CtOsTscs0H3sxmkXQ7YkpU0IqbKXPwEbr6DOhfjy+oZpZ29uXTnBW/U6SPjh0WedxoxryDMxF0h0EJdeIyxbd9t9MtpiT16N0lVSBAReW4rQbLKM6A2jRRddFi2NweBS+vDAHNocdmc8TPBHBSgoRINCXFgs8s=

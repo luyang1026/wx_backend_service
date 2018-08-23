@@ -1,8 +1,8 @@
 language: node_js
 addons:
   apt:
-	packages:
-	  - sshpass
+	  packages:
+	    - sshpass
 after_success:
   - eche 'success'
   - export SSHPASS=$SSHPASS
